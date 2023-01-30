@@ -1,6 +1,14 @@
 const app=require("./app");
 const connectDatabase= require("./config/database");
 const cloudinary = require("cloudinary");
+const cors = require('cors');
+
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 
 //Handling uncaught exception
 process.on("uncaughtException",(err)=>{
@@ -10,9 +18,7 @@ process.on("uncaughtException",(err)=>{
 });
 
 //config
-if(process.env.NODE_ENV !=="PRODUCTION"){
- require("dotenv").config({path:"backend/config/config.env"})
-}
+ require("dotenv").config({path:"config/config.env"})
 
 //connecting to database
 connectDatabase();
