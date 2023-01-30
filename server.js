@@ -19,6 +19,10 @@ process.on("uncaughtException",(err)=>{
 
 //config
  require("dotenv").config({path:"config/config.env"})
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4e2f5e63f7fe13814bf88cae73d8e9fd6bbc84a0
 
 //connecting to database
 connectDatabase();
